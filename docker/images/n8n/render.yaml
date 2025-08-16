@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: n8n
+    runtime: docker
+    plan: free
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "admin"
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "Hemraj@5"
+      - key: N8N_HOST
+        value: "n8n.onrender.com"
+      - key: N8N_PORT
+        value: "5678"
+      - key: N8N_PROTOCOL
+        value: "https"
+      - key: EXECUTIONS_DATA_PRUNE
+        value: "false"
+      - key: EXECUTIONS_DATA_MAX_AGE
+        value: "0"
+      - key: EXECUTIONS_PROCESS
+        value: "main"
+      - key: EXECUTIONS_DATA_SAVE_ON_SUCCESS
+        value: "all"
+      - key: EXECUTIONS_DATA_SAVE_ON_ERROR
+        value: "all"
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
